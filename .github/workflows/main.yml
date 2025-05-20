@@ -107,6 +107,10 @@ jobs:
         git clone ${{ github.event.inputs.DEVICE_TREE }} -b ${{ github.event.inputs.DEVICE_TREE_BRANCH }} ./${{ github.event.inputs.DEVICE_PATH }}
         cd ${{ github.event.inputs.DEVICE_PATH }}
         echo "COMMIT_ID=$(git rev-parse HEAD)" >> $GITHUB_ENV
+    - name: Install dependencies
+      run: |
+       sudo apt update
+       sudo apt install -y ninja-build ccache
 
     - name: Check Manifest Branch
       uses: haya14busa/action-cond@v1
