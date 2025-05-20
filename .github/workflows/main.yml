@@ -83,6 +83,8 @@ jobs:
     - name: Build Environment
       run: |
         sudo apt update
+        sudo apt install ninja-build
+        sudo apt update
         sudo apt -y upgrade
         git clone https://gitlab.com/OrangeFox/misc/scripts
         cd scripts
